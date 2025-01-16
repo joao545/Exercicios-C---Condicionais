@@ -1,0 +1,1 @@
+rintf("raiz: %.2f", sqrt(delta));
