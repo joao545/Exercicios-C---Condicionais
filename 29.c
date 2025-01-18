@@ -12,26 +12,31 @@ corretas, alem de quantas vezes o aluno acertou
 
 int main(){
 
-    //Função dos números aleatórios
-    int maximo = 100;
-    int minimo = 1;
+    srand(time(NULL));
 
-    int aleatorio_a = (rand() % (maximo - minimo + 1) + minimo);
-    int aleatorio_b = (rand() % (maximo - minimo + 1) + minimo);
-    printf("Numero aleatorio entre 1 e 100: %d \n", aleatorio_a);
-    printf("Numero aleatorio entre 1 e 100: %d \n\n", aleatorio_b);
+    int i, acertos = 0;
+    float a, b, soma, resposta;
 
-    //Perguntas
-    float soma;
-    printf("Qual e a soma de a + b?");
-    float resposta = scanf("%f", &soma);
+    for(i = 0; i < 5; i++){
+     a = rand() % 101;
+     b = rand() % 101;
 
-    if(soma == resposta){
-        printf("Resposta: %.2f, correto!", aleatorio_a + aleatorio_b);
+    soma = a + b;
+
+    resposta = soma;
+
+    printf("qual e a soma de %.2f + %.2f? \n", a, b);
+    scanf("%f", &resposta);
+
+    if(resposta != soma){
+        printf("Resposta errada, a resposta e: %f", soma);
     }
-    else if(soma != resposta){
-        printf("Incorreto!");
+    else{
+        acertos++;
     }
+    
+    }
+    printf("Voce acertou %d vezes.\n", acertos);
 
 
     return 0;
